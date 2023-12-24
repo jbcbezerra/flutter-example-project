@@ -1,8 +1,10 @@
+import 'package:dartz/dartz.dart';
+
 import '../entities/user.dart';
 
 abstract class AuthenticationRepository {
   const AuthenticationRepository();
 
-  Future<void> createUser({required String createdAt, required String name, required String avatar});
-  Future<List<User>> getAllUsers();
+  Future<Either<Exception,void>> createUser({required String createdAt, required String name, required String avatar});
+  Future<Either<Exception,List<User>>> getAllUsers();
 }
