@@ -19,7 +19,7 @@ class UserModel extends User {
             avatar: '_empty.avatar');
 
   factory UserModel.fromJson(String source) =>
-      UserModel.fromJson(jsonDecode(source) as String);
+      UserModel.fromMap(jsonDecode(source) as DataMap);
 
   UserModel.fromMap(DataMap map)
       : this(
