@@ -4,9 +4,9 @@ import 'package:mocktail/mocktail.dart';
 import 'package:tdd_tutorial/src/authentication/domain/repositories/authentication_repository.dart';
 import 'package:tdd_tutorial/src/authentication/domain/usecases/create_user.dart';
 
-// create mockversion of dependencies
-class MockAuthRepo extends Mock implements AuthenticationRepository {}
+import 'authentication_repository_mock.dart';
 
+// create mockversion of dependencies
 void main() {
   late AuthenticationRepository repository;
   late CreateUser usecase;
