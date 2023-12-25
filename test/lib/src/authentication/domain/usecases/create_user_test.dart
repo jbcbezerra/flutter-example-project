@@ -16,10 +16,7 @@ void main() {
     usecase = CreateUser(repository);
   });
 
-  const params = CreateUserParams(
-      createdAt: '_empty.string',
-      name: '_empty.string',
-      avatar: '_empty.string');
+  const params = CreateUserParams.empty();
 
   test("should call the [AuthRepo.createUser]", () async {
     // Arrange
