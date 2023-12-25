@@ -11,6 +11,13 @@ class UserModel extends User {
       required super.name,
       required super.avatar});
 
+  const UserModel.empty()
+      : this(
+            id: "1",
+            createdAt: '_empty.createdAt',
+            name: '_empty.name',
+            avatar: '_empty.avatar');
+
   factory UserModel.fromJson(String source) =>
       UserModel.fromJson(jsonDecode(source) as String);
 
