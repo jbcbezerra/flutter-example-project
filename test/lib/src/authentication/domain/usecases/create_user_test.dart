@@ -6,7 +6,6 @@ import 'package:tdd_tutorial/src/authentication/domain/usecases/create_user.dart
 
 import 'auth_repo_mock.dart';
 
-// create mockversion of dependencies
 void main() {
   late AuthRepo repository;
   late CreateUser usecase;

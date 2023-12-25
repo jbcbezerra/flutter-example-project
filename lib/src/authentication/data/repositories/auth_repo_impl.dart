@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:tdd_tutorial/core/utilities/typedef.dart';
 import 'package:tdd_tutorial/src/authentication/data/datasource/auth_remote_datasource.dart';
 import 'package:tdd_tutorial/src/authentication/domain/entities/user.dart';
@@ -12,8 +13,14 @@ class AuthRepoImpl implements AuthRepo {
   ResultVoid createUser(
       {required String createdAt,
       required String name,
-      required String avatar}) async {}
+      required String avatar}) async {
+    await _remoteDataSource.createUser(
+        createdAt: createdAt, name: name, avatar: avatar);
+    return const Right(null);
+  }
 
   @override
-  ResultFuture<List<User>> getAllUsers() async {}
+  ResultFuture<List<User>> getAllUsers() async {
+    throw UnimplementedError();
+  }
 }
