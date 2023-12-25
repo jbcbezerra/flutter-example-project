@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:tdd_tutorial/core/usecase/usecase.dart';
-import 'package:tdd_tutorial/src/authentication/domain/repositories/authentication_repository.dart';
+import 'package:tdd_tutorial/src/authentication/domain/repositories/auth_repo.dart';
 
 import '../../../../core/utilities/typedef.dart';
 
 class CreateUser extends UsecaseWithParameters<void, CreateUserParams> {
-  final AuthenticationRepository _repository;
+  final AuthRepo _repository;
 
   const CreateUser(this._repository);
 

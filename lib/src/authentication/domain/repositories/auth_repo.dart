@@ -2,8 +2,8 @@ import 'package:tdd_tutorial/core/utilities/typedef.dart';
 
 import '../entities/user.dart';
 
-abstract class AuthenticationRepository {
-  const AuthenticationRepository();
+abstract class AuthRepo {
+  const AuthRepo();
 
   ResultVoid createUser(
       {required String createdAt,

@@ -1,6 +1,6 @@
 import 'package:tdd_tutorial/src/authentication/data/models/user_model.dart';
 
-abstract class AuthenticationRemoteDatasource {
+abstract class AuthRemoteDatasource {
   Future<void> createUser(
       {required String createdAt,
       required String name,

@@ -1,10 +1,10 @@
 import 'package:tdd_tutorial/core/usecase/usecase.dart';
 import 'package:tdd_tutorial/core/utilities/typedef.dart';
 import 'package:tdd_tutorial/src/authentication/domain/entities/user.dart';
-import 'package:tdd_tutorial/src/authentication/domain/repositories/authentication_repository.dart';
+import 'package:tdd_tutorial/src/authentication/domain/repositories/auth_repo.dart';
 
 class GetUsers extends UsecaseWithoutParameters<List<User>> {
-  final AuthenticationRepository _repository;
+  final AuthRepo _repository;
 
   const GetUsers(this._repository);
 
