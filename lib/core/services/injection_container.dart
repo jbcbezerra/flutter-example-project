@@ -12,19 +12,20 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   // blocs
-  sl.registerFactory(() => AuthCubit(createUser: sl(), getUsers: sl()));
+  sl
+    ..registerFactory(() => AuthCubit(createUser: sl(), getUsers: sl()))
 
-  // usecases
-  sl.registerLazySingleton(() => CreateUser(sl()));
-  sl.registerLazySingleton(() => GetUsers(sl()));
+    // usecases
+    ..registerLazySingleton(() => CreateUser(sl()))
+    ..registerLazySingleton(() => GetUsers(sl()))
 
-  // repositories
-  sl.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(sl()));
+    // repositories
+    ..registerLazySingleton<AuthRepo>(() => AuthRepoImpl(sl()))
 
-  // datasource
-  sl.registerLazySingleton<AuthRemoteDatasource>(
-      () => AuthRemoteDatasourceImpl(sl()));
+    // datasource
+    ..registerLazySingleton<AuthRemoteDatasource>(
+        () => AuthRemoteDatasourceImpl(sl()))
 
-  //externals
-  sl.registerLazySingleton(http.Client.new);
+    //externals
+    ..registerLazySingleton(http.Client.new);
 }
