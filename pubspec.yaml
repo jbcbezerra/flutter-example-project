@@ -17,6 +17,7 @@ dependencies:
   # state management
   bloc: any
   flutter_bloc: any
+  get_it: any
 
 dev_dependencies:
   flutter_test:
