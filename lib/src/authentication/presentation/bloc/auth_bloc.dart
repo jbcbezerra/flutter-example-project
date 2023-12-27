@@ -17,7 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({required CreateUser createUser, required GetUsers getUsers})
       : _createUser = createUser,
         _getUsers = getUsers,
-        super(AuthInitial()) {
+        super(const AuthInitial()) {
     on<CreateUserEvent>(_createUserHandler);
     on<GetUsersEvent>(_getUsersHandler);
   }
