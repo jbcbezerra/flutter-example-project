@@ -31,7 +31,8 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
     try {
       final response = await _client.post(Uri.https(kBaseUrl, kEndpointPath),
           body: jsonEncode(
-              {'createdAt': createdAt, 'name': name, 'avatar': avatar}));
+              {'createdAt': createdAt, 'name': name, 'avatar': avatar}),
+          headers: {'Content-Type': 'application/json'});
 
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw ApiException(msg: response.body, statusCode: response.statusCode);

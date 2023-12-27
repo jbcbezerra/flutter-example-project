@@ -31,8 +31,10 @@ void main() {
     test('should complete successfully when the status code is 200 or 201',
         () async {
       // arrange
-      when(() => client.post(any(), body: any(named: 'body'))).thenAnswer(
-          (_) async => http.Response('User created successfully', 201));
+      when(() => client.post(any(),
+              body: any(named: 'body'), headers: any(named: 'headers')))
+          .thenAnswer(
+              (_) async => http.Response('User created successfully', 201));
 
       // act
       final methodCall = datasourceImpl.createUser;
@@ -41,9 +43,9 @@ void main() {
       expect(methodCall(createdAt: createdAt, name: name, avatar: avatar),
           completes);
       verify(() => client.post(Uri.https(kBaseUrl, kEndpointPath),
-              body: jsonEncode(
-                  {'createdAt': createdAt, 'name': name, 'avatar': avatar})))
-          .called(1);
+          body: jsonEncode(
+              {'createdAt': createdAt, 'name': name, 'avatar': avatar}),
+          headers: {'Content-Type': 'application/json'})).called(1);
 
       verifyNoMoreInteractions(client);
     });
@@ -51,7 +53,10 @@ void main() {
     test('should throw [ApiException] when the status code is not 200 or 201',
         () async {
       // arrange
-      when(() => client.post(any(), body: any(named: 'body'))).thenAnswer(
+      when(() =>
+          client.post(any(),
+              body: any(named: 'body'),
+              headers: any(named: 'headers'))).thenAnswer(
           (_) async => http.Response(tException.msg, tException.statusCode));
 
       // act
@@ -63,9 +68,9 @@ void main() {
           throwsA(ApiException(
               msg: tException.msg, statusCode: tException.statusCode)));
       verify(() => client.post(Uri.https(kBaseUrl, kEndpointPath),
-              body: jsonEncode(
-                  {'createdAt': createdAt, 'name': name, 'avatar': avatar})))
-          .called(1);
+          body: jsonEncode(
+              {'createdAt': createdAt, 'name': name, 'avatar': avatar}),
+          headers: {'Content-Type': 'application/json'})).called(1);
 
       verifyNoMoreInteractions(client);
     });
