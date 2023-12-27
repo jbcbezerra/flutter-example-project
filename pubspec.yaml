@@ -14,6 +14,9 @@ dependencies:
   equatable: any
   dartz: any
   http: any
+  # state management
+  bloc: any
+  flutter_bloc: any
 
 dev_dependencies:
   flutter_test:
